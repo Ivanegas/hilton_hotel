@@ -487,10 +487,23 @@
                 const departuresData = await departures.json();
                 const arrivalsData = await arrivals.json();
 
+                // Get the current time in the correct timezone (El Salvador)
+                const now = new Date();
+
+                // Filter flights based on the current time
+                const filteredDepartures = departuresData.filter(flight => {
+                    const scheduledTime = new Date(flight.departure?.estimatedDeparture || flight.departure?.scheduledTime);
+                    return scheduledTime >= now;
+                });
+
+                const filteredArrivals = arrivalsData.filter(flight => {
+                    const scheduledTime = new Date(flight.arrival?.estimatedArrival || flight.arrival?.scheduledTime);
+                    return scheduledTime >= now;
+                });
 
                 currentFlights = [
-                    ...departuresData.map(flight => ({ ...flight, type: 'departure' })),
-                    ...arrivalsData.map(flight => ({ ...flight, type: 'arrival' }))
+                    ...filteredDepartures.map(flight => ({ ...flight, type: 'departure' })),
+                    ...filteredArrivals.map(flight => ({ ...flight, type: 'arrival' }))
                 ];
 
                 await populateAirlineSelect(currentFlights);
