@@ -125,6 +125,24 @@
             transform: scale(1.1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
+
+        .weather-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        #js_w_temp {
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        #js_w_icon {
+            margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -135,13 +153,12 @@
         </div>
         <div class="datetime">
             <div id="current-time" style="font-size: 24px;"></div>
-
-
-            <div class="weather_block " id="js_w_temp" style=" position: fixed; top: 54px; right: 85px; font-size: 1rem; color: white;
-            padding: 10px 10px; font-weight: bold; z-index: 1000; width:20px; heigth:15px;"></div>
-            <div class="weather_block" id="js_w_icon" style=" position: fixed; top: 47px; right: 95px; font-size: 1rem; color: white;
-            padding: 10px 10px; font-weight: bold; z-index: 1000; "></div>
+            <div class="weather-container">
+                <div class="weather_block" id="js_w_temp"></div>
+                <div class="weather_block" id="js_w_icon"></div>
+            </div>
         </div>
+
     </div>
 
     <div class="main-content">
