@@ -143,6 +143,27 @@
         #js_w_icon {
             margin-left: 5px;
         }
+
+        #aviso-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        #modal-text {
+            font-size: 14px;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -181,6 +202,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal de aviso -->
+                <div id="aviso-modal" class="modal">
+                    <p id="modal-text">Será redirigido a la página de vuelos en 3 segundos...</p>
+                </div>
+
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -250,8 +276,17 @@
     <script>
 
         function redirectPagVuelos() {
-            window.location.href = 'vuelos.html';
+            // Mostrar el modal de aviso
+            const modal = document.getElementById('aviso-modal');
+            modal.style.display = 'block';
+
+            // Esperar 3 segundos antes de cerrar el modal y redirigir
+            setTimeout(() => {
+                modal.style.display = 'none'; // Cierra el modal
+                window.location.href = 'https://www.espanol.skyscanner.com/vuelos/llegadas-salidas/sal'; // Redirige
+            }, 3000); // 3000 ms = 3 segundos
         }
+
 
 
         //Redireccionar Directorio de servicios
