@@ -191,10 +191,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Modal de aviso -->
-                <div id="aviso-modal" class="modal">
-                    <p id="modal-text">Será redirigido a la página de vuelos en 3 segundos...</p>
-                </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -268,17 +264,8 @@
 
 
         function redirectPagVuelos() {
-            // Mostrar el modal de aviso
-            const modal = document.getElementById('aviso-modal');
-            modal.style.display = 'block';
-
-            // Esperar 3 segundos antes de cerrar el modal y redirigir
-            setTimeout(() => {
-                modal.style.display = 'none'; // Cierra el modal
-                window.location.href = 'https://www.espanol.skyscanner.com/vuelos/llegadas-salidas/sal'; // Redirige
-            }, 3000); // 3000 ms = 3 segundos
+            window.location.href = 'newVuelos.html'
         }
-
         //Redireccionar Directorio de servicios
         function redirectServicios() {
             window.location.href = 'servicios.html';
