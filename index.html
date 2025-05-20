@@ -29,7 +29,7 @@
         }*/
 
         .logo {
-            height: 80px;
+            height: 120px;
             /* Adjust as needed */
         }
 
@@ -54,8 +54,11 @@
 
         .main-content {
             padding: 20px;
-            padding-top: 50px;
+            padding-top: -280px;
             /*margen superior del contenedor*/
+
+
+
         }
 
         .card {
@@ -110,7 +113,7 @@
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 100px;
+            height: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -170,23 +173,30 @@
 <body>
     <div class="header">
         <div class="logo">
-            <img src="assets/img/logo_hh.png" alt="Hotel Hilton" class="logo">
+            <img src="assets/img/logo_hh_blanco.png" alt="Hotel Hilton" class="logo">
         </div>
+        <!--div class="menu">
+            <div>Your Stay</div>
+            <div class="active">TV & Entertainment</div>
+            <div>Checkout</div>
+        </div-->
         <div class="datetime">
             <div id="current-time" style="font-size: 24px;"></div>
-            <div class="weather-container">
-                <div class="weather_block" id="js_w_temp"></div>
-                <div class="weather_block" id="js_w_icon"></div>
-            </div>
-        </div>
 
+
+            <div class="weather_block " id="js_w_temp" style=" position: fixed; top: 74px; right: 85px; font-size: 1rem; color: white;
+            padding: 10px 10px; font-weight: bold; z-index: 1000; width:20px; heigth:15px;"></div>
+            <div class="weather_block" id="js_w_icon" style=" position: fixed; top: 69px; right: 95px; font-size: 1rem; color: white;
+            padding: 10px 10px; font-weight: bold; z-index: 1000; "></div>
+        </div>
     </div>
 
     <div class="main-content">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card black-card" style="background-image: url('assets/img/bienvenida.png');">
+                    <div class="card black-card" style="background-image: url('assets/img/bienvenida.png');"
+                        onclick="redirectWelcome()">
                         <!--div class="card-content">
                             <div>Bienvenida</div>
                         </div-->
@@ -202,16 +212,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="card black-card"
                         style="background-image: url('https://y.cdrst.com/foto/hotel-sf/15249/granderesp/crowne-plaza-san-salvador-an-ihg-hotel-general-12196315.jpg'); "
-                        onclick="redirectServicios()">
+                        onclick="redirectPromociones()">
                         <div class="card-content">
                             <!--div>Experiencia Hilton</div-->
-                            <div> Hilton Experience
+                            <div> Enjoy your Hotel
                             </div>
                         </div>
                     </div>
@@ -220,7 +229,7 @@
                     <div class="card black-card" style="background-image: url('assets/img/menu.png');"
                         onclick="redirectMenu()">
                         <div class="card-content">
-                            <div>Menu</div>
+                            <div>Menu and services</div>
                         </div>
                     </div>
                 </div>
@@ -259,18 +268,20 @@
                 </div>
                 <div class="col-4 col-md-2">
                     <!--div class="app-card" style="background-image: url('assets/img/plataformas/7-netflix.png');"  onclick="redirectNetflix()"></div-->
-                    <div class="app-card" style="background-image: url('assets/img/plataformas/6-spotify.png');"
-                        onclick="redirectSpotify()"></div>
+                    <div class="app-card" style="background-image: url('assets/img/plataformas/asistente2.png');"
+                        onclick="redirectIa()"></div>
 
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
 
         function redirectPagVuelos() {
-            window.location.href = 'newVuelos.html'
+            window.location.href = 'vuelos.html';
         }
 
 
@@ -332,6 +343,22 @@
         //Redireccionar CCVEOTV
         function redirectCCVEOTV() {
             window.location.href = 'intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LEANBACK_LAUNCHER;package=hn.cablecolor.ccveotv;end';
+        }
+
+        function redirectPromociones() {
+            window.location.href = 'promociones.html';
+        }
+
+        function redirectWelcome() {
+            window.location.href = 'bienvenida.html';
+        }
+
+        function redirectWifi() {
+            window.location.href = 'wifi.html';
+        }
+
+        function redirectIa() {
+            window.location.href = 'asistente.html';
         }
     </script>
 
